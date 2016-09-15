@@ -1,3 +1,5 @@
+**Inactive Project:** I've stopped using this project in favor of deploying redirects using S3 and Cloudfront (https://github.com/akerl/aws-account/blob/master/akerl/blog/redirects.tf)
+
 dock0/redirects
 =======
 
