@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+services:
+- docker
+install:
+- docker build -t test .
+script:
+- docker run -ti test /bin/true
+- docker run -ti test /bin/bash --version
+- docker run -d -p 80:80 test && sleep 5
+- curl localhost
+notifications:
+  email: false
+  slack:
+    secure: mZ/maqP1M86n4ieV9IBV6PoBVwtUs9a+zigAgxVmxlnqgq/tlEJ71abIp2DwSFV2Pp2Y5FlvMxT1Dk9DD7MwFMXS0L1P070W2J1XXPq5DCr5PqGMP043m7RH+OLNnvkZPJxRn98sMJwheXYRaon6zXI64pOiZV768fXClMNol/8OI8Y+AlMpI6Flwuj/99kC+OXac5xXKskZOLS9uO7ytAvneMW+5ALyhWwGS/6asuFtgQ2DApiWVjjhbS2EdYKhb1EfvrxZz+NJkzdlDE06o3g08HS5QBAp6zjCx1kJ+HRi+DICh0fFrtaksSkB2+8zq85KWEmgR5iuGCaow90HG2ei8G30ugmbv4d52IvTCsE4FefomFZtac4EMiZaT/V7TSaFNLdcy08iwTLnctC3cb09AdaziB8pcCSXLwveERbQM9u/P3MLM6g6+MhZfeM2QY3hgv1TLsKb0wZuFYeJPAqlDvBu5JAndm9/lOk6Nu5PEgiVmD8s6b3U2xjlXcy0BBAsSWWhsOrwfvbY8q6NFDq+E8603NMkpP861+xO0quNnqih1RNswBQJinTCpt0q0fCgdKhpf+UvQxgVj7c625d0eNBGISsYHs2Cs6Vrj7WaazmDdtE3FQqib0zlzShTMb7gbsYBMLxK29JqF8krFf1kw9oLrDLXTR0yPdI074o=
